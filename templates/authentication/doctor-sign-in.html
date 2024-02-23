@@ -6,12 +6,15 @@ Doctor Sign up
 
 {% block body %}
 
+
 <div class="container mx-auto w-1/2">
   <div class="text-center m-5">
     <h3 class="font-semibold text-xl">Log In here</h3>
   </div>
+  <form action="{{url_for('auth.doctor_sign_in')}}" method="post">
   <div class="relative m-2 w-1/2 mx-auto">
-    <input type="email"
+
+    <input type="email" name="email"
       class="peer py-3 px-4 ps-11 block w-full bg-gray-100 border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-700 dark:border-transparent dark:text-gray-400 dark:focus:ring-gray-600"
       placeholder="Enter Email">
     <div
@@ -23,10 +26,20 @@ Doctor Sign up
         <circle cx="12" cy="7" r="4" />
       </svg>
     </div>
+
+
   </div>
 
+  {% if form.email.errors %}
+  <ul>
+    {% for err in form.email.errors %}
+    <li>err</li>
+    {% endfor%}
+  </ul>
+  {% endif %}
+
   <div class="relative m-2 w-1/2 mx-auto">
-    <input type="password"
+    <input type="password" name="password"
       class="peer py-3 px-4 ps-11 block w-full bg-gray-100 border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-700 dark:border-transparent dark:text-gray-400 dark:focus:ring-gray-600"
       placeholder="Enter password">
     <div
@@ -39,7 +52,14 @@ Doctor Sign up
       </svg>
     </div>
   </div>
-  
+  {% if form.password.errors %}
+  <ul>
+    {% for err in form.password.errors %}
+    <li>err</li>
+    {% endfor%}
+  </ul>
+  {% endif %}
+
 
   <div class="mx-auto m-6 text-center">
 
@@ -47,9 +67,19 @@ Doctor Sign up
       class="py-2 px-3 w-1/2 text-sm font-semibold rounded-lg border border-transparent bg-indigo-500 text-white hover:bg-indigo-300 hover:text-black disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
       Sign In
     </button>
-
+    <p>Don't have an account <a class="text-primary-c-100 " href="{{url_for('auth.doctor_sign_up')}}">Sign up</a> </p>
+  
 
   </div>
+</form>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <div class="text-center">
+    <p>{{messages[0]}}</p>
+  </div>
+  {% endif %}
+  {% endwith %}
 
 </div>
 {% endblock %}
