@@ -7,15 +7,15 @@ Doctor Sign up
 {% block body %}
 
 
-<div class="container mx-auto w-1/2">
+<div class="container mx-auto w-full md:w-1/2 px-3">
   <div class="text-center m-5">
     <h3 class="font-semibold text-xl">Log In here</h3>
   </div>
   <form action="{{url_for('auth.doctor_sign_in')}}" method="post">
-  <div class="relative m-2 w-1/2 mx-auto">
+  <div class="relative  mx-auto">
 
     <input type="email" name="email"
-      class="peer py-3 px-4 ps-11 block w-full bg-gray-100 border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-700 dark:border-transparent dark:text-gray-400 dark:focus:ring-gray-600"
+      class="peer py-3 px-4  ps-11 block w-full bg-gray-100 border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-700 dark:border-transparent dark:text-gray-400 dark:focus:ring-gray-600"
       placeholder="Enter Email">
     <div
       class="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-4 peer-disabled:opacity-50 peer-disabled:pointer-events-none">
@@ -38,7 +38,7 @@ Doctor Sign up
   </ul>
   {% endif %}
 
-  <div class="relative m-2 w-1/2 mx-auto">
+  <div class="relative m-2 w-full mx-auto">
     <input type="password" name="password"
       class="peer py-3 px-4 ps-11 block w-full bg-gray-100 border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-700 dark:border-transparent dark:text-gray-400 dark:focus:ring-gray-600"
       placeholder="Enter password">

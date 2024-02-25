@@ -10,7 +10,8 @@ module.exports = {
       colors: {
         "primary-c": {
           100: 'var(--primary-100)',
-          200: 'var(--primary-200)'
+          200: 'var(--primary-200)',
+          300: 'var(--primary-300)',
         },
         "accent-c": {
           100: "#46B77B",

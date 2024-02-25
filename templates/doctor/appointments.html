@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends "doctor/doctor-base.html" %}
 
 {% block title %}
 Appointments
 {% endblock %}
 
 {% block body %}
-<div class="flex flex-col w-3/4 mx-auto m-4">
+<div class="flex flex-col  w-3/4 mx-auto m-4">
     <div class="-m-1.5 overflow-x-auto">
         <div class="p-1.5 min-w-full inline-block align-middle">
             <div class="border rounded-lg divide-y divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
@@ -42,9 +42,13 @@ Appointments
                                     class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Date</th>
                                 <th scope="col"
                                     class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Time</th>
-
-                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">
+                                <th scope="col"
+                                    class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">
+                                    Status</th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">
                                     Seen</th>
+
                                 <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">
                                     Action</th>
                             </tr>
@@ -61,22 +65,35 @@ Appointments
                                 <td
                                     class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
                                     John Brown</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">Aug. 18</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">15:30</td>
-                                    {#
-                                    <td class="px-6 py-4 text-center">
-                                        <button>Seen</button>
-                                    </td>
-                                    #}
-                                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                        <button type="button"
-                                            class="px-1 py-0.5 inline-flex items-center  text-sm font-semibold rounded-lg border border-grey-200 text-text-c  hover:text-white hover:bg-primary-c-100 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Seen</button>
-                                    </td>
-                                    
-                                    <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                        <button type="button"
-                                            class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Delete</button>
-                                    </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">Aug. 18
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">15:30
+                                </td>
+                                {#
+                                <td class="px-6 py-4 text-center">
+                                    <button>Seen</button>
+                                </td>
+                                #}
+                                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                    <p
+                                        class="px-1 py-0.5 inline-flex items-center  text-sm font-semibold rounded-lg border border-gray-200 text-green-600  disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                                        Confirmed</p>
+                                </td>
+                                {#<td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                    <p
+                                        class="px-1 py-0.5 inline-flex items-center  text-sm font-semibold rounded-lg border  text-red-600  disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                                        Canciled</p>
+                                </td>#}
+                                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                    <button type="button"
+                                        class="px-1 py-0.5 inline-flex items-center  text-sm font-semibold rounded-lg border border-grey-200 text-text-c  hover:text-white hover:bg-primary-c-100 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Seen</button>
+                                </td>
+
+
+                                <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                    <button type="button"
+                                        class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Delete</button>
+                                </td>
 
                             </tr>
 

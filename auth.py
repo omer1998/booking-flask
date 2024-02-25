@@ -78,6 +78,7 @@ def doctor_sign_in():
                 # if the email and password are correct, set the session variables
                 session['user_type'] = 'doctor'
                 session['user_id'] = doctor['id']
+                return redirect(url_for("doctor.doctor_info"))
                 return redirect(url_for("index"))
     
     return render_template("doctor-sign-in.html", form= form )

@@ -4,14 +4,16 @@ from datetime import timedelta
 import auth
 from db import pool
 from psycopg.rows import dict_row
+from doctor import doctor_bp
 app = Flask(__name__)
 app.register_blueprint(auth.bp)
+app.register_blueprint(doctor_bp)
 # configure the secret key and the session type
 app.secret_key= "7a32c13d088e1a704462057aa4e23f464cda8642b7a8cad54b9c0ed263d57ba9"
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_PERMANENT"] = True
 # to set the session lifetime to 5 minutes
-app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=3)
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=30)
 
 
 Session(app)
@@ -26,6 +28,12 @@ def index():
     # app.logger.info("omer")
     
     return render_template("index.html", session = session)
+
+# @app.route("/doctor") 
+# def doctor():
+    
+    
+#     return render_template("doctor/doctor-landing-page.html")
 
 
 @app.route("/preline.js")
