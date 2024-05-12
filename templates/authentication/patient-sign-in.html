@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}
+Patient Sign up
+{% endblock %}
+
+{% block body %}
+{#
+<div class="container mx-auto w-full md:w-1/2">
+  <div class="text-center m-5">
+    <h3 class="font-semibold text-xl">Log In here</h3>
+  </div>
+  <div class="relative m-2 w-full mx-auto">
+    <input type="email"
+      class="peer py-3 px-4 ps-11 block w-full bg-gray-100 border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-700 dark:border-transparent dark:text-gray-400 dark:focus:ring-gray-600"
+      placeholder="Enter Email">
+    <div
+      class="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-4 peer-disabled:opacity-50 peer-disabled:pointer-events-none">
+      <svg class="flex-shrink-0 w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="relative m-2 w-full mx-auto">
+    <input type="password"
+      class="peer py-3 px-4 ps-11 block w-full bg-gray-100 border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-700 dark:border-transparent dark:text-gray-400 dark:focus:ring-gray-600"
+      placeholder="Enter password">
+    <div
+      class="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-4 peer-disabled:opacity-50 peer-disabled:pointer-events-none">
+      <svg class="flex-shrink-0 w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z" />
+        <circle cx="16.5" cy="7.5" r=".5" />
+      </svg>
+    </div>
+  </div>
+
+
+  <div class="mx-auto m-6 text-center">
+
+    <button type="submit"
+      class="py-2 px-3  text-sm font-semibold rounded-lg border border-transparent bg-indigo-500 text-white hover:bg-indigo-300 hover:text-black disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+      Sign In
+    </button>
+    <p>Don't have an account? <a class="text-primary-100 " href="{{url_for('auth.patient_sign_up')}}">Register</a></p>
+
+
+  </div>
+
+</div>
+#}
+
+
+<div
+  class=" mx-auto mt-5 w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+  <form class="space-y-6" action="sign-in" method="post">
+    {{ form.csrf_token }}
+
+  
+    <h5 class="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform <strong
+        class="text-primary-c-100">AS Patient</strong></h5>
+    <div>
+      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+      <input type="email" name="email" id="email"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+        placeholder="name@company.com" required>
+    </div>
+    {% if form.email.errors %}
+    <ul class="text-red-700">
+      {% for error in form.email.errors %}
+      <li>{{error}}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div>
+      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+      <input type="password" name="password" id="password" placeholder="••••••••"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+        >
+    </div>
+    {% if form.password.errors %}
+    <ul class="text-red-700">
+      {% for error in form.password.errors %}
+      <li>{{error}}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="flex items-start">
+      <div class="flex items-start">
+        <div class="flex items-center h-5">
+          <input id="remember" type="checkbox" name="remember_me"
+            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800">
+        </div>
+        <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+      </div>
+      <a href="#" class="ms-auto text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+    </div>
+
+    <div class="text-red-700 text-center">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+    </div>
+
+    <button type="submit"
+      class="w-full text-white bg-primary-c-100 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login
+      to your account</button>
+    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+      Not registered? <a href="{{url_for('auth.patient_sign_up')}}"
+        class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends "doctor/doctor-base.html" %}
+
+{% block title %}
+Doctor Landing Page
+{% endblock %}
+
+{% block body %}
+<!-- Main Content -->
+<div class="container mx-auto mt-16">
+    <div class=" md:flex ">
+        <img class="block max-w-sm flex-1  mx-auto text-center border rounded-full"
+            src="{{url_for('static', filename='doctor-image.jpg')}}" alt="">
+        <div class="m-6 flex-1">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">Hello again {{doctor["first_name"]}} {{doctor["last_name"]}}</h1>
+            <h1 class="text-xl font-semibold text-gray-600 ">{{doctor['speciality']}}</h1>
+            {#<h1 class="text-sm font-semibold text-gray-600 mt-1">{{doctor['professional_statement']}}</h1>
+            <h1 class="text-sm font-semibold text-gray-600 mt-1 mb-2">{{doctor['experience']}}</h1>
+#}
+            <p class="text-gray-600 text-lg">Explore Your Appointments</p>
+            <a href="#today-appointments" class=" inline-block mt-4 p-3 border border-gray-200 rounded-lg bg-primary-c-100 text-white leading-none ">Today
+                Appointments</a>
+
+
+        </div>
+    </div>
+
+    <div class="m-6">
+        <hr class="my-6">
+        <h1 id="today-appointments" class="text-3xl font-bold text-gray-900 mb-8">Appointments</h1>
+        <hr class="mb-6">
+        <div  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Appointment Card Example -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold text-gray-900">Patient Name</h2>
+                <p class="text-gray-600">Date: [Appointment Date]</p>
+                <p class="text-gray-600">Time: [Appointment Time]</p>
+                <p class="mt-4 text-gray-600">Status: <span class="text-green-500">Confirmed</span></p>
+                <button
+                    class="mt-6 bg-primary-c-100 hover:bg-primary-c-200 text-white font-bold py-2 px-4 rounded-full">View
+                    Details</button>
+            </div>
+            <!-- Additional Appointment Cards can go here -->
+        </div>
+        <!-- statistics -->
+        <hr class="my-6">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Statistics</h1>
+        <hr class="mb-6">
+
+        <!-- Statistics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Total Appointments -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold text-gray-900">Total Appointments</h2>
+                <p class="mt-4 text-gray-600">Total: <span class="font-bold">[Total Appointments]</span></p>
+            </div>
+            
+            <!-- Appointment Status Breakdown -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold text-gray-900">Appointment Status Breakdown</h2>
+                <!-- Example: -->
+                <ul class="mt-4">
+                    <li><span class="text-green-500">Confirmed:</span> [Number of Confirmed Appointments]</li>
+                    <li><span class="text-yellow-500">Pending:</span> [Number of Pending Appointments]</li>
+                    <li><span class="text-red-500">Canceled:</span> [Number of Canceled Appointments]</li>
+                    <li><span class="text-blue-500">Completed:</span> [Number of Completed Appointments]</li>
+                </ul>
+            </div>
+            
+            <!-- Appointment Trends -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold text-gray-900">Appointment Trends</h2>
+                <!-- Include a line chart or graph to visualize appointment trends over time -->
+                <div class="mt-4">
+                    <!-- Line chart/graph goes here -->
+                </div>
+            </div>
+            
+            <!-- Additional Statistics Cards can go here -->
+        </div>
+
+
+        <!-- question -->
+        <hr class="my-6">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Questions</h1>
+        <hr class="mb-6">
+
+        <!-- Question Cards -->
+        <div class="lg:flex lg:flex-wrap gap-4">
+            <div class="flex-1 bg-white shadow-md rounded-lg p-6 mb-4 ">
+                <!-- Patient Information -->
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold text-gray-900">Patient Name</h2>
+                    <button class="text-sm font-medium text-gray-600 border rounded-lg p-2 hover:bg-primary-c-100 hover:text-white">View patient details</button>
+                </div>
+                <!-- Question Content -->
+                <div class="mb-4">
+                    <p class="text-gray-700">Patient's Question:</p>
+                    <p class="text-gray-900">[Patient's Question Content]</p>
+                </div>
+                <!-- Doctor's Response Form -->
+                <form>
+                    <div class="mb-4">
+                        <label for="response" class="block text-sm font-medium text-gray-700">Your Response:</label>
+                        <textarea id="response" name="response" rows="2" class="p-2 mt-1 border border-gray-200 focus:outline-primary-c-100 block w-full drop-shadow-sm sm:text-sm rounded-md"></textarea>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-primary-c-100 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">Submit Response</button>
+                    </div>
+                </form>
+            </div>
+            <div class="flex-1 bg-white shadow-md rounded-lg p-6 mb-4 ">
+                <!-- Patient Information -->
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold text-gray-900">Patient Name</h2>
+                    <button class="text-sm font-medium text-gray-600 border rounded-lg p-2 hover:bg-primary-c-100 hover:text-white">View patient details</button>
+                </div>
+                <!-- Question Content -->
+                <div class="mb-4">
+                    <p class="text-gray-700">Patient's Question:</p>
+                    <p class="text-gray-900">[Patient's Question Content]</p>
+                </div>
+                <!-- Doctor's Response Form -->
+                <form>
+                    <div class="mb-4">
+                        <label for="response" class="block text-sm font-medium text-gray-700">Your Response:</label>
+                        <textarea id="response" name="response" rows="2" class="p-2 mt-1 border border-gray-200 focus:outline-primary-c-100 block w-full drop-shadow-sm sm:text-sm rounded-md"></textarea>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-primary-c-100 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">Submit Response</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+</div>
+
+
+{% endblock %}
