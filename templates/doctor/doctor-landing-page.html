@@ -11,8 +11,11 @@ Doctor Landing Page
         <img class="block max-w-sm flex-1  mx-auto text-center border rounded-full"
             src="{{url_for('static', filename='doctor-image.jpg')}}" alt="">
         <div class="m-6 flex-1">
-            <h1 class="text-3xl font-bold text-gray-900 mb-8">Hello again, Dr. Ali Wafiq</h1>
-
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">Hello again {{doctor["first_name"]}} {{doctor["last_name"]}}</h1>
+            <h1 class="text-xl font-semibold text-gray-600 ">{{doctor['speciality']}}</h1>
+            {#<h1 class="text-sm font-semibold text-gray-600 mt-1">{{doctor['professional_statement']}}</h1>
+            <h1 class="text-sm font-semibold text-gray-600 mt-1 mb-2">{{doctor['experience']}}</h1>
+#}
             <p class="text-gray-600 text-lg">Explore Your Appointments</p>
             <a href="#today-appointments" class=" inline-block mt-4 p-3 border border-gray-200 rounded-lg bg-primary-c-100 text-white leading-none ">Today
                 Appointments</a>
